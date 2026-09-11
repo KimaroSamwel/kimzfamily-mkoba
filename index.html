@@ -100,12 +100,13 @@
   <div class="card"><div class="lbl">Jumla ya Michango (2023–2026)</div><div class="val green">TZS 2,221,000</div><div class="small">2023: 121,000 &middot; 2024: 1,440,000 &middot; 2025: 540,000 &middot; 2026: 120,000</div></div>
   <div class="card"><div class="lbl">Matumizi / Utoaji</div><div class="val red">TZS 1,600,000</div><div class="small">Hisani (Mchele) 2024: 100,000 &middot; Mkopo wa Ujenzi 2025: 1,500,000</div></div>
   <div class="card"><div class="lbl">Fedha kwenye Akaunti (M-Koba)</div><div class="val">TZS 861,000</div><div class="small">Salio halisi la akaunti kufikia Septemba 2026 (linajumuisha marejesho ya mkopo)</div></div>
-  <div class="card"><div class="lbl">Madeni ya Michango (Wote)</div><div class="val amber">TZS 2,219,000</div><div class="small">Fungua kila mwanachama hapa chini kuona deni lake</div></div>
+  <div class="card"><div class="lbl">Madeni ya Michango — hadi Septemba 2026</div><div class="val amber">TZS 1,859,000</div><div class="small">Kwa kutumia miezi 9 ya 2026 (Januari–Septemba, 180,000 kwa mwanachama)</div></div>
+  <div class="card"><div class="lbl">Madeni ya Michango — mwaka kamili 2026</div><div class="val red">TZS 2,219,000</div><div class="small">Ikiwa wote hawatasamehewa hadi mwisho wa Desemba 2026 (240,000 kwa mwanachama)</div></div>
 </div>
 
 <div class="loan">
-  <b>MKOPO WA WAZAZI (Fredrick &amp; Anchilla) — Ujenzi</b>
-  <div style="margin-top:4px;">Mkopo uliotolewa <b>TZS 1,500,000</b> mwaka 2025, kwa shughuli za ujenzi, <b>bila riba</b> (kurudishwa ndani ya 2025/2026). Wamerudisha <b>TZS 240,000</b>. <b>Salio la mkopo: TZS 1,260,000</b> (84% bado).</div>
+  <b>MKOPO WA WAZAZI (Kaya ya Fredrick &amp; Anchilla) — Ujenzi</b>
+  <div style="margin-top:4px;">Mkopo uliotolewa <b>TZS 1,500,000</b> mwaka 2025, kwa shughuli za ujenzi, <b>bila riba</b> (kurudishwa ndani ya 2025/2026). Imetolewa kwa <b>kaya nzima kwa pamoja</b> — si kwa kila mzazi tofauti, hivyo salio la mkopo (1,260,000) linahesabiwa mara moja tu. Wamerudisha <b>TZS 240,000</b>. <b>Salio: TZS 1,260,000</b> (84% bado).</div>
   <div class="bar"><span style="width:16%;"></span></div>
   <div style="font-size:12px; color:var(--mut); margin-top:4px;">16% imerudishwa (240,000 / 1,500,000)</div>
 </div>
@@ -122,7 +123,13 @@
 </div>
 
 <div class="note">
-  <b>Kuhusu data:</b> Takwimu zinatoka kwenye <i>KIMZ FAMILY 2026</i> (Google Sheet) kufikia Septemba 2026. Michango ya kila mwaka inatarajiwa TZS 240,000 kwa mwanachama (12 &times; 20,000); 2023 ilikuwa Desemba tu (TZS 20,000). Deni la mkopo wa wazazi linarekodiwa kando na hudungua michango — Fredrick na Anchilla wana deni zote mbili.
+  <b>Kuhusu data:</b> Takwimu zinatoka kwenye <i>KIMZ FAMILY 2026</i> (Google Sheet) kufikia Septemba 2026. Mchango wa 2026 unatarajiwa:
+  <ul style="margin:6px 0 0 18px;">
+    <li><b>Hadi Septemba 2026</b> (miezi 9): TZS 180,000 kwa mwanachama.</li>
+    <li><b>Mwaka kamili 2026</b> (miezi 12): TZS 240,000 kwa mwanachama.</li>
+  </ul>
+  <div style="margin-top:6px;">Deni la mkopo wa wazazi (1,260,000) linahesabiwa kwa kaya nzima mara moja tu na limeonyeshwa kwenye mwanachama mmoja (Fredrick) ili lisionekane kila mzazi anadaiwa kiasi hicho tofauti.</div>
+  <div style="margin-top:6px;"><b>Samwel:</b> Desemba 2023 alilipia <b>TZS 21,000</b> (ziada ya 1,000). Ziada hiyo imesheheniwa kwenye deni lake — maana yake mwezi ujao atalipa <b>TZS 19,000</b> badala ya 20,000 ili kusawazisha.</div>
 </div>
 
 <footer>KIMZ FAMILY MKOBA &middot; Ilianza Desemba 2023 &middot; Mchango TZS 20,000/mwezi &middot; Data kwa mujibu wa Google Sheet (Septemba 2026)</footer>
@@ -131,22 +138,26 @@
 <script>
 const D = {
   rate: 20000,
-  exp: {y23: 20000, y24: 240000, y25: 240000, y26: 240000},
+  exp: {y23: 20000, y24: 240000, y25: 240000},
+  sep2026: 180000,
+  yr2026: 240000,
   years: [{k:'y23', y:2023}, {k:'y24', y:2024}, {k:'y25', y:2025}, {k:'y26', y:2026}],
   members: [
-    {name:'FAITH FREDRICK KIMARO',   phone:'255766114820', y23:20000, y24:240000, y25:240000, y26:120000, credit:0},
-    {name:'SAMWEL FREDRICK KIMARO',  phone:'255759326286', y23:21000, y24:240000, y25:60000,  y26:0,      credit:1000},
-    {name:'PRAISE FREDRICK KIMARO',  phone:'255748941250', y23:20000, y24:240000, y25:80000,  y26:0,      credit:0},
-    {name:'FREDRICK JUSTIN KIMARO',  phone:'255754395220', y23:20000, y24:240000, y25:100000, y26:0,      credit:0, loan:true},
-    {name:'ANCHILLA FREDRICK KIMARO',phone:'255652392002', y23:20000, y24:240000, y25:60000,  y26:0,      credit:0, loan:true},
-    {name:'EMMANUEL FREDRICK KIMARO',phone:'255742483924', y23:20000, y24:240000, y25:0,      y26:0,      credit:0}
+    {name:'FAITH FREDRICK KIMARO',   phone:'255766114820', y23:20000, y24:240000, y25:240000, y26:120000},
+    {name:'SAMWEL FREDRICK KIMARO',  phone:'255759326286', y23:21000, y24:240000, y25:60000,  y26:0},
+    {name:'PRAISE FREDRICK KIMARO',  phone:'255748941250', y23:20000, y24:240000, y25:80000,  y26:0},
+    {name:'FREDRICK JUSTIN KIMARO',  phone:'255754395220', y23:20000, y24:240000, y25:100000, y26:0, loan:true},
+    {name:'ANCHILLA FREDRICK KIMARO',phone:'255652392002', y23:20000, y24:240000, y25:60000,  y26:0},
+    {name:'EMMANUEL FREDRICK KIMARO',phone:'255742483924', y23:20000, y24:240000, y25:0,      y26:0}
   ]
 };
 const MEMBERS = D.members;
 const fmt = n => 'TZS ' + n.toLocaleString('en-US');
 const paid = m => m.y23 + m.y24 + m.y25 + m.y26;
-const totalExp = m => 20000 + 240000 + 240000 + 240000;
-const deni = m => Math.max(0, totalExp(m) - paid(m) - (m.credit||0));
+const EXP_SEP = 20000 + 240000 + 240000 + 180000;   // 680,000 — hadi Septemba 2026
+const EXP_YR  = 20000 + 240000 + 240000 + 240000;   // 740,000 — mwaka kamili 2026
+const dSept = m => Math.max(0, EXP_SEP - paid(m));
+const dYr   = m => Math.max(0, EXP_YR  - paid(m));
 const years = D.years;
 
 function renderMembers(){
@@ -157,28 +168,38 @@ function renderMembers(){
   let html='';
   const card = m => {
     const p = paid(m);
-    const d = deni(m);
+    const ds = dSept(m);
+    const dy = dYr(m);
     const mm = m.name.split(' ').map(w=>w[0]||'').slice(0,2).join('');
     html += '<div class="member"><div class="row" onclick="toggle(this)">'+
       '<div class="avatar">'+mm+'</div>'+
       '<div class="mname">'+m.name+'<div class="mstat">Amelipa jumla '+fmt(p)+'</div></div>'+
-      '<span class="pill '+(d>0?'debt':'ok')+'">'+(d>0?'DENI '+d.toLocaleString():'MALIPO KAMILI')+'</span>'+
+      '<span class="pill '+(ds>0?'debt':'ok')+'">'+(ds>0?'DENI '+ds.toLocaleString():'MALIPO KAMILI')+'</span>'+
       '<div class="amt"><div class="b">'+fmt(p)+'</div></div>'+
     '</div>'+
     '<div class="detail"><table>';
     years.forEach(yr=>{
       const pd = m[yr.k];
+      if(yr.k==='y26'){
+        html += '<tr><td>Mchango 2026 (hadi Septemba)</td><td>'+fmt(pd)+' / '+fmt(D.sep2026)+'</td></tr>';
+        const gs = Math.max(0, D.sep2026 - pd);
+        const gy = Math.max(0, D.yr2026 - pd);
+        if(gs>0) html += '<tr><td style="color:var(--amber);">Deni 2026 (hadi Septemba)</td><td style="color:var(--amber);">'+fmt(gs)+'</td></tr>';
+        if(gy>0) html += '<tr><td style="color:var(--amber);">Deni 2026 (mwaka kamili)</td><td style="color:var(--amber);">'+fmt(gy)+'</td></tr>';
+        return;
+      }
       const exp = D.exp[yr.k];
-      const gap = Math.max(0, exp - pd);
       html += '<tr><td>Mchango '+yr.y+(yr.y===2023?' (Desemba tu)':'')+'</td><td>'+fmt(pd)+' / '+fmt(exp)+(pd>exp?' <span style="color:var(--green);font-weight:700;">(+'+fmt(pd-exp)+')</span>':'')+'</td></tr>';
+      const gap = Math.max(0, exp - pd);
       if(gap>0) html += '<tr><td style="color:var(--amber);">Deni '+yr.y+'</td><td style="color:var(--amber);">'+fmt(gap)+'</td></tr>';
     });
     html += '<tr><td>Jumla aliyolipa (2023–2026)</td><td>'+fmt(p)+'</td></tr>'+
-      '<tr><td>Alitakiwa kulipa (2023–2026)</td><td>'+fmt(totalExp(m))+'</td></tr>';
-    if(m.credit>0) html += '<tr><td>Ziada (credit) 2023</td><td style="color:var(--green);">+'+fmt(m.credit)+'</td></tr>';
-    html += '<tr><td>DENI YA MICHANGO</td><td style="color:'+(d>0?'var(--red)':'var(--green)')+'">'+(d>0?fmt(d):'Hakuna deni')+'</td></tr>';
+      '<tr><td>Alitakiwa hadi Septemba 2026</td><td>'+fmt(EXP_SEP)+'</td></tr>'+
+      '<tr><td>Alitakiwa mwaka kamili 2026</td><td>'+fmt(EXP_YR)+'</td></tr>';
+    html += '<tr><td>JUMLA YA DENI (hadi Septemba 2026)</td><td style="color:'+(ds>0?'var(--red)':'var(--green)')+'">'+(ds>0?fmt(ds):'Hakuna deni')+'</td></tr>'+
+      '<tr><td>JUMLA YA DENI (mwisho wa 2026)</td><td style="color:'+(dy>0?'var(--red)':'var(--green)')+'">'+(dy>0?fmt(dy):'Hakuna deni')+'</td></tr>';
     if(m.loan){
-      html += '<tr><td>Mkopo wa Ujenzi (Wazazi)</td><td style="color:var(--amber);">Alipokea 1,500,000 &middot; Amerudisha 240,000 &middot; Salio 1,260,000</td></tr>';
+      html += '<tr><td>Mkopo wa Ujenzi (kaya ya Wazazi)</td><td style="color:var(--amber);">Alipokea 1,500,000 &middot; Amerudisha 240,000 &middot; Salio 1,260,000</td></tr>';
     }
     html += '<tr><td>Namba ya simu</td><td>+'+m.phone+' <a href="https://wa.me/'+m.phone+'" target="_blank" rel="noopener" title="WhatsApp" style="text-decoration:none;font-size:16px;">&#128172;</a> <a href="tel:+'+m.phone+'" title="Piga simu" style="text-decoration:none;font-size:16px;">&#128222;</a></td></tr>'+
     '</table></div></div>';
