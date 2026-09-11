@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KIMZ FAMILY MKOBA — Dashboard ya Kikundi (Septemba 2026)</title>
+<style>
+  :root{
+    --green:#1b7a4b; --green-d:#115c37; --green-l:#e6f4ec;
+    --amber:#b7791f; --amber-l:#fdf3e3;
+    --red:#b3261e; --red-l:#fdecea;
+    --blue:#1d4e89; --blue-l:#e8f0fa;
+    --ink:#15302a; --mut:#5c726b; --line:#dce8e2; --bg:#f4f8f6;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:Segoe UI,Roboto,Arial,sans-serif; background:var(--bg); color:var(--ink); line-height:1.5;}
+  .wrap{max-width:900px; margin:0 auto; padding:14px;}
+  header{background:linear-gradient(135deg,var(--green),var(--green-d)); color:#fff; border-radius:16px; padding:20px 18px; margin-bottom:14px;}
+  header h1{font-size:22px; letter-spacing:.3px;}
+  header .sub{opacity:.92; font-size:14px; margin-top:2px;}
+  header .badges{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px;}
+  .badge{background:rgba(255,255,255,.16); border:1px solid rgba(255,255,255,.35); border-radius:99px; padding:4px 12px; font-size:12.5px;}
+  h2{font-size:17px; margin:22px 0 10px; display:flex; align-items:center; gap:8px;}
+  h2 .n{background:var(--green); color:#fff; border-radius:99px; font-size:12px; padding:2px 9px; flex-shrink:0;}
+  .cards{display:grid; grid-template-columns:repeat(2,1fr); gap:10px;}
+  .card{background:#fff; border:1px solid var(--line); border-radius:14px; padding:14px;}
+  .card .lbl{font-size:12px; color:var(--mut); text-transform:uppercase; letter-spacing:.5px;}
+  .card .val{font-size:20px; font-weight:700; margin-top:3px;}
+  .card .small{font-size:12px; color:var(--mut); margin-top:2px;}
+  .green{color:var(--green);} .red{color:var(--red);} .amber{color:var(--amber);} .blue{color:var(--blue);}
+  .loan{background:var(--amber-l); border-left:4px solid var(--amber); border-radius:10px; padding:12px 14px; font-size:13.5px; margin:14px 0;}
+  .loan b{color:var(--amber);}
+  .loan .bar{height:10px; background:#eadfc9; border-radius:99px; margin-top:8px; overflow:hidden;}
+  .loan .bar span{display:block; height:100%; background:var(--amber); border-radius:99px;}
+  .search input{width:100%; padding:12px 14px; border:1px solid var(--line); border-radius:12px; font-size:16px; background:#fff;}
+  .search input:focus{outline:2px solid var(--green);}
+  .list{margin-top:10px;}
+  .member{background:#fff; border:1px solid var(--line); border-radius:12px; margin-bottom:8px; overflow:hidden;}
+  .member .row{display:flex; align-items:center; gap:10px; padding:12px 14px; cursor:pointer; user-select:none;}
+  .member .row:hover{background:var(--green-l);}
+  .member .row:active{background:#d8eee2;}
+  .avatar{width:38px; height:38px; border-radius:50%; background:var(--green-d); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:15px; flex-shrink:0;}
+  .mname{flex:1; font-weight:600; font-size:14.5px; min-width:0;}
+  .mstat{font-size:11.5px; color:var(--mut);}
+  .amt{text-align:right; flex-shrink:0;}
+  .amt .b{font-size:15px; font-weight:700;}
+  .detail{display:none; border-top:1px dashed var(--line); padding:12px 14px; background:#fbfdfc; font-size:13.5px; overflow-x:auto;}
+  .detail.show{display:block;}
+  .detail table{width:100%; border-collapse:collapse; margin-top:8px;}
+  .detail td{padding:5px 4px; border-bottom:1px solid var(--line);}
+  .detail td:last-child{text-align:right; font-weight:600;}
+  .detail tr:last-child td{border-bottom:none; font-weight:700;}
+  .pill{display:inline-block; border-radius:99px; padding:2px 10px; font-size:11.5px; font-weight:600;}
+  .pill.ok{background:var(--green-l); color:var(--green-d);}
+  .pill.debt{background:var(--amber-l); color:var(--amber);}
+  .leaders{display:grid; grid-template-columns:repeat(3,1fr); gap:10px;}
+  .leader{background:#fff; border:1px solid var(--line); border-radius:14px; padding:14px; text-align:center;}
+  .leader .av{width:52px;height:52px;border-radius:50%;background:var(--green-d);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:18px;margin:0 auto 8px;}
+  .leader .role{font-size:11.5px; color:var(--mut); text-transform:uppercase; letter-spacing:.5px;}
+  .leader .who{font-weight:700; font-size:14px; margin-top:2px;}
+  .note{background:var(--blue-l); border-left:4px solid var(--blue); border-radius:10px; padding:10px 12px; font-size:13px; margin:10px 0;}
+  footer{text-align:center; font-size:12px; color:var(--mut); margin:22px 0 8px;}
+  @media(max-width:640px){
+    .wrap{padding:10px;}
+    header{padding:16px 14px;}
+    header h1{font-size:19px;}
+    .cards{grid-template-columns:1fr;}
+    .leaders{grid-template-columns:1fr;}
+    .card .val{font-size:18px;}
+    h2{font-size:15.5px;}
+  }
+  @media(max-width:520px){
+    .member .row{flex-wrap:wrap; gap:6px 10px; padding:10px 12px;}
+    .avatar{width:32px;height:32px;font-size:12px;}
+    .mname{flex:1 1 auto; min-width:0;}
+    .pill{flex:0 1 auto;}
+    .amt{flex:1 0 100%; text-align:left; padding-top:2px;}
+    .amt .b{font-size:14px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+<noscript>
+  <div style="background:var(--amber-l);border-left:4px solid var(--amber);border-radius:10px;padding:10px 12px;font-size:13px;margin-bottom:10px;"><b>Tahadhari / Note:</b> Orodha ya wanachama na madeni inaonekana kwenye browser pekee (Chrome/Safari). Fungua ukurasa huu kwa browser — si kwenye onyesho la WhatsApp. <i>The member list opens only in a real browser — open this page in Chrome or Safari.</i></div>
+</noscript>
+
+<header>
+  <h1>KIMZ FAMILY MKOBA — Dashboard ya Kikundi</h1>
+  <div class="sub">Kuanzishwa Desemba 2023 &middot; Mchango TZS 20,000 kwa mwezi kwa kila mwanachama</div>
+  <div class="badges">
+    <span class="badge">&#128994; Wanachama: 6</span>
+    <span class="badge">Kukusanywa kila mwezi: TZS 120,000</span>
+    <span class="badge">Mkopo wa Wazazi: Salio TZS 1,260,000</span>
+  </div>
+</header>
+
+<h2><span class="n">1</span> Muhtasari wa Fedha</h2>
+<div class="cards">
+  <div class="card"><div class="lbl">Jumla ya Michango (2023–2026)</div><div class="val green">TZS 2,221,000</div><div class="small">2023: 121,000 &middot; 2024: 1,440,000 &middot; 2025: 540,000 &middot; 2026: 120,000</div></div>
+  <div class="card"><div class="lbl">Matumizi / Utoaji</div><div class="val red">TZS 1,600,000</div><div class="small">Hisani (Mchele) 2024: 100,000 &middot; Mkopo wa Ujenzi 2025: 1,500,000</div></div>
+  <div class="card"><div class="lbl">Fedha kwenye Akaunti (M-Koba)</div><div class="val">TZS 861,000</div><div class="small">Salio halisi la akaunti kufikia Septemba 2026 (linajumuisha marejesho ya mkopo)</div></div>
+  <div class="card"><div class="lbl">Madeni ya Michango (Wote)</div><div class="val amber">TZS 2,219,000</div><div class="small">Fungua kila mwanachama hapa chini kuona deni lake</div></div>
+</div>
+
+<div class="loan">
+  <b>MKOPO WA WAZAZI (Fredrick &amp; Anchilla) — Ujenzi</b>
+  <div style="margin-top:4px;">Mkopo uliotolewa <b>TZS 1,500,000</b> mwaka 2025, kwa shughuli za ujenzi, <b>bila riba</b> (kurudishwa ndani ya 2025/2026). Wamerudisha <b>TZS 240,000</b>. <b>Salio la mkopo: TZS 1,260,000</b> (84% bado).</div>
+  <div class="bar"><span style="width:16%;"></span></div>
+  <div style="font-size:12px; color:var(--mut); margin-top:4px;">16% imerudishwa (240,000 / 1,500,000)</div>
+</div>
+
+<h2><span class="n">2</span> Wanachama na Madeni</h2>
+<div class="search"><input id="q" type="text" placeholder="Tafuta mwanachama kwa jina..."></div>
+<div class="list" id="list"></div>
+
+<h2><span class="n">3</span> Uongozi wa Kikundi</h2>
+<div class="leaders">
+  <div class="leader"><div class="av">SK</div><div class="role">Mwenyekiti (Chairperson)</div><div class="who">Samwel Kimaro</div></div>
+  <div class="leader"><div class="av">FK</div><div class="role">Katibu (Secretary)</div><div class="who">Faith Kimaro</div></div>
+  <div class="leader"><div class="av">PK</div><div class="role">Mweka Hazina (Treasurer)</div><div class="who">Praise Kimaro</div></div>
+</div>
+
+<div class="note">
+  <b>Kuhusu data:</b> Takwimu zinatoka kwenye <i>KIMZ FAMILY 2026</i> (Google Sheet) kufikia Septemba 2026. Michango ya kila mwaka inatarajiwa TZS 240,000 kwa mwanachama (12 &times; 20,000); 2023 ilikuwa Desemba tu (TZS 20,000). Deni la mkopo wa wazazi linarekodiwa kando na hudungua michango — Fredrick na Anchilla wana deni zote mbili.
+</div>
+
+<footer>KIMZ FAMILY MKOBA &middot; Ilianza Desemba 2023 &middot; Mchango TZS 20,000/mwezi &middot; Data kwa mujibu wa Google Sheet (Septemba 2026)</footer>
+</div>
+
+<script>
+const D = {
+  rate: 20000,
+  exp: {y23: 20000, y24: 240000, y25: 240000, y26: 240000},
+  years: [{k:'y23', y:2023}, {k:'y24', y:2024}, {k:'y25', y:2025}, {k:'y26', y:2026}],
+  members: [
+    {name:'FAITH FREDRICK KIMARO',   phone:'255766114820', y23:20000, y24:240000, y25:240000, y26:120000, credit:0},
+    {name:'SAMWEL FREDRICK KIMARO',  phone:'255759326286', y23:21000, y24:240000, y25:60000,  y26:0,      credit:1000},
+    {name:'PRAISE FREDRICK KIMARO',  phone:'255748941250', y23:20000, y24:240000, y25:80000,  y26:0,      credit:0},
+    {name:'FREDRICK JUSTIN KIMARO',  phone:'255754395220', y23:20000, y24:240000, y25:100000, y26:0,      credit:0, loan:true},
+    {name:'ANCHILLA FREDRICK KIMARO',phone:'255652392002', y23:20000, y24:240000, y25:60000,  y26:0,      credit:0, loan:true},
+    {name:'EMMANUEL FREDRICK KIMARO',phone:'255742483924', y23:20000, y24:240000, y25:0,      y26:0,      credit:0}
+  ]
+};
+const MEMBERS = D.members;
+const fmt = n => 'TZS ' + n.toLocaleString('en-US');
+const paid = m => m.y23 + m.y24 + m.y25 + m.y26;
+const totalExp = m => 20000 + 240000 + 240000 + 240000;
+const deni = m => Math.max(0, totalExp(m) - paid(m) - (m.credit||0));
+const years = D.years;
+
+function renderMembers(){
+  const list = document.getElementById('list');
+  const q = (document.getElementById('q').value||'').toLowerCase();
+  const sorted = MEMBERS.slice().sort((a,b)=>paid(b)-paid(a) || a.name.localeCompare(b.name))
+    .filter(m=>!q || m.name.toLowerCase().includes(q));
+  let html='';
+  const card = m => {
+    const p = paid(m);
+    const d = deni(m);
+    const mm = m.name.split(' ').map(w=>w[0]||'').slice(0,2).join('');
+    html += '<div class="member"><div class="row" onclick="toggle(this)">'+
+      '<div class="avatar">'+mm+'</div>'+
+      '<div class="mname">'+m.name+'<div class="mstat">Amelipa jumla '+fmt(p)+'</div></div>'+
+      '<span class="pill '+(d>0?'debt':'ok')+'">'+(d>0?'DENI '+d.toLocaleString():'MALIPO KAMILI')+'</span>'+
+      '<div class="amt"><div class="b">'+fmt(p)+'</div></div>'+
+    '</div>'+
+    '<div class="detail"><table>';
+    years.forEach(yr=>{
+      const pd = m[yr.k];
+      const exp = D.exp[yr.k];
+      const gap = Math.max(0, exp - pd);
+      html += '<tr><td>Mchango '+yr.y+(yr.y===2023?' (Desemba tu)':'')+'</td><td>'+fmt(pd)+' / '+fmt(exp)+(pd>exp?' <span style="color:var(--green);font-weight:700;">(+'+fmt(pd-exp)+')</span>':'')+'</td></tr>';
+      if(gap>0) html += '<tr><td style="color:var(--amber);">Deni '+yr.y+'</td><td style="color:var(--amber);">'+fmt(gap)+'</td></tr>';
+    });
+    html += '<tr><td>Jumla aliyolipa (2023–2026)</td><td>'+fmt(p)+'</td></tr>'+
+      '<tr><td>Alitakiwa kulipa (2023–2026)</td><td>'+fmt(totalExp(m))+'</td></tr>';
+    if(m.credit>0) html += '<tr><td>Ziada (credit) 2023</td><td style="color:var(--green);">+'+fmt(m.credit)+'</td></tr>';
+    html += '<tr><td>DENI YA MICHANGO</td><td style="color:'+(d>0?'var(--red)':'var(--green)')+'">'+(d>0?fmt(d):'Hakuna deni')+'</td></tr>';
+    if(m.loan){
+      html += '<tr><td>Mkopo wa Ujenzi (Wazazi)</td><td style="color:var(--amber);">Alipokea 1,500,000 &middot; Amerudisha 240,000 &middot; Salio 1,260,000</td></tr>';
+    }
+    html += '<tr><td>Namba ya simu</td><td>+'+m.phone+' <a href="https://wa.me/'+m.phone+'" target="_blank" rel="noopener" title="WhatsApp" style="text-decoration:none;font-size:16px;">&#128172;</a> <a href="tel:+'+m.phone+'" title="Piga simu" style="text-decoration:none;font-size:16px;">&#128222;</a></td></tr>'+
+    '</table></div></div>';
+  };
+  sorted.forEach(m=>card(m));
+  list.innerHTML = html;
+}
+function toggle(el){
+  const d = el.nextElementSibling;
+  if(d) d.classList.toggle('show');
+}
+document.getElementById('q').addEventListener('input', renderMembers);
+renderMembers();
+</script>
+</body>
+</html>
