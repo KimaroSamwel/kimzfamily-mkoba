@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KIMZ FAMILY MKOBA — Dashboard ya Kikundi (Septemba 2026)</title>
+<title>KIMZ FAMILY MKOBA — Dashboard ya Kikundi (Oktoba 2026)</title>
 <style>
   :root{
     --green:#1b7a4b; --green-d:#115c37; --green-l:#e6f4ec;
@@ -100,7 +100,7 @@
   <div class="card"><div class="lbl">Jumla ya Michango (2023–2026)</div><div class="val green">TZS 2,681,000</div><div class="small">2023: 121,000 &middot; 2024: 1,440,000 &middot; 2025: 680,000 &middot; 2026: 440,000</div></div>
   <div class="card"><div class="lbl">Matumizi / Utoaji</div><div class="val red">TZS 1,600,000</div><div class="small">Hisani (Mchele) 2024: 100,000 &middot; Mkopo wa Ujenzi 2025: 1,500,000</div></div>
   <div class="card"><div class="lbl">Fedha kwenye Akaunti (M-Koba)</div><div class="val">TZS 1,321,000</div><div class="small">Salio la akaunti baada ya malipo ya Fredrick 380,000, Faith 60,000 na Praise 20,000 (Septemba 2026) + marejesho ya mkopo 240,000</div></div>
-  <div class="card"><div class="lbl">Madeni ya Michango — hadi Septemba 2026</div><div class="val amber">TZS 1,459,000</div><div class="small">Kwa kutumia miezi 9 ya 2026 (Januari–Septemba, 180,000 kwa mwanachama)</div></div>
+  <div class="card"><div class="lbl">Madeni ya Michango — hadi Oktoba 2026</div><div class="val amber">TZS 1,559,000</div><div class="small">Kwa kutumia miezi 10 ya 2026 (Januari–Oktoba, 200,000 kwa mwanachama)</div></div>
   <div class="card"><div class="lbl">Madeni ya Michango — mwaka kamili 2026</div><div class="val red">TZS 1,759,000</div><div class="small">Ikiwa wote watakamilisha michango yao hadi mwisho wa Desemba 2026 (240,000 kwa mwanachama)</div></div>
   <div class="card" style="border:2px solid var(--green); background:var(--green-l);"><div class="lbl">Jumla Inayotarajiwa — mwisho wa Desemba 2026</div><div class="val green">TZS 4,340,000</div><div class="small">Akaunti 1,321,000 + mkopo uliorejeshwa 1,260,000 + madeni yote ya wanachama 1,759,000 (iwapo mkopo utarejeshwa na kila mwanachama atalipa deni lake lote)</div></div>
 </div>
@@ -124,9 +124,9 @@
 </div>
 
 <div class="note">
-  <b>Kuhusu data:</b> Takwimu zinatoka kwenye <i>KIMZ FAMILY 2026</i> (Google Sheet) kufikia Septemba 2026. Mchango wa 2026 unatarajiwa:
+  <b>Kuhusu data:</b> Takwimu zinatoka kwenye <i>KIMZ FAMILY 2026</i> (Google Sheet) kufikia Oktoba 2026. Mchango wa 2026 unatarajiwa:
   <ul style="margin:6px 0 0 18px;">
-    <li><b>Hadi Septemba 2026</b> (miezi 9): TZS 180,000 kwa mwanachama.</li>
+    <li><b>Hadi Oktoba 2026</b> (miezi 10): TZS 200,000 kwa mwanachama.</li>
     <li><b>Mwaka kamili 2026</b> (miezi 12): TZS 240,000 kwa mwanachama.</li>
   </ul>
   <div style="margin-top:6px;">Deni la mkopo wa wazazi (1,260,000) linahesabiwa kwa kaya nzima mara moja tu na limeonyeshwa kwenye mwanachama mmoja (Fredrick) ili lisionekane kila mzazi anadaiwa kiasi hicho tofauti.</div>
@@ -136,14 +136,14 @@
   <div style="margin-top:6px;"><b>Praise:</b> Septemba 2026 ametoa <b>TZS 20,000</b> (inawaka mwezi wa Januari 2026). Bado ana deni la 2025 (160,000) na 2026 (220,000 hadi mwisho wa mwaka).</div>
 </div>
 
-<footer>KIMZ FAMILY MKOBA &middot; Ilianza Desemba 2023 &middot; Mchango TZS 20,000/mwezi &middot; Data kwa mujibu wa Google Sheet (Septemba 2026)</footer>
+<footer>KIMZ FAMILY MKOBA &middot; Ilianza Desemba 2023 &middot; Mchango TZS 20,000/mwezi &middot; Data kwa mujibu wa Google Sheet (Oktoba 2026)</footer>
 </div>
 
 <script>
 const D = {
   rate: 20000,
   exp: {y23: 20000, y24: 240000, y25: 240000},
-  sep2026: 180000,
+  sep2026: 200000,
   yr2026: 240000,
   years: [{k:'y23', y:2023}, {k:'y24', y:2024}, {k:'y25', y:2025}, {k:'y26', y:2026}],
   members: [
@@ -158,7 +158,7 @@ const D = {
 const MEMBERS = D.members;
 const fmt = n => 'TZS ' + n.toLocaleString('en-US');
 const paid = m => m.y23 + m.y24 + m.y25 + m.y26;
-const EXP_SEP = 20000 + 240000 + 240000 + 180000;   // 680,000 — hadi Septemba 2026
+const EXP_SEP = 20000 + 240000 + 240000 + 200000;   // 700,000 — hadi Oktoba 2026
 const EXP_YR  = 20000 + 240000 + 240000 + 240000;   // 740,000 — mwaka kamili 2026
 const dSept = m => Math.max(0, EXP_SEP - paid(m));
 const dYr   = m => Math.max(0, EXP_YR  - paid(m));
@@ -185,10 +185,10 @@ function renderMembers(){
     years.forEach(yr=>{
       const pd = m[yr.k];
       if(yr.k==='y26'){
-        html += '<tr><td>Mchango 2026 (hadi Septemba)</td><td>'+fmt(pd)+' / '+fmt(D.sep2026)+'</td></tr>';
+        html += '<tr><td>Mchango 2026 (hadi Oktoba)</td><td>'+fmt(pd)+' / '+fmt(D.sep2026)+'</td></tr>';
         const gs = Math.max(0, D.sep2026 - pd);
         const gy = Math.max(0, D.yr2026 - pd);
-        if(gs>0) html += '<tr><td style="color:var(--amber);">Deni 2026 (hadi Septemba)</td><td style="color:var(--amber);">'+fmt(gs)+'</td></tr>';
+        if(gs>0) html += '<tr><td style="color:var(--amber);">Deni 2026 (hadi Oktoba)</td><td style="color:var(--amber);">'+fmt(gs)+'</td></tr>';
         if(gy>0) html += '<tr><td style="color:var(--amber);">Deni 2026 (mwaka kamili)</td><td style="color:var(--amber);">'+fmt(gy)+'</td></tr>';
         return;
       }
@@ -198,9 +198,9 @@ function renderMembers(){
       if(gap>0) html += '<tr><td style="color:var(--amber);">Deni '+yr.y+'</td><td style="color:var(--amber);">'+fmt(gap)+'</td></tr>';
     });
     html += '<tr><td>Jumla aliyolipa (2023–2026)</td><td>'+fmt(p)+'</td></tr>'+
-      '<tr><td>Alitakiwa hadi Septemba 2026</td><td>'+fmt(EXP_SEP)+'</td></tr>'+
+      '<tr><td>Alitakiwa hadi Oktoba 2026</td><td>'+fmt(EXP_SEP)+'</td></tr>'+
       '<tr><td>Alitakiwa mwaka kamili 2026</td><td>'+fmt(EXP_YR)+'</td></tr>';
-    html += '<tr><td>JUMLA YA DENI (hadi Septemba 2026)</td><td style="color:'+(ds>0?'var(--red)':'var(--green)')+'">'+(ds>0?fmt(ds):'Hakuna deni')+'</td></tr>'+
+    html += '<tr><td>JUMLA YA DENI (hadi Oktoba 2026)</td><td style="color:'+(ds>0?'var(--red)':'var(--green)')+'">'+(ds>0?fmt(ds):'Hakuna deni')+'</td></tr>'+
       '<tr><td>JUMLA YA DENI (mwisho wa 2026)</td><td style="color:'+(dy>0?'var(--red)':'var(--green)')+'">'+(dy>0?fmt(dy):'Hakuna deni')+'</td></tr>';
     if(m.loan){
       html += '<tr><td>Mkopo wa Ujenzi (kaya ya Wazazi)</td><td style="color:var(--amber);">Alipokea 1,500,000 &middot; Amerudisha 240,000 &middot; Salio 1,260,000</td></tr>';
